@@ -106,7 +106,7 @@ export const logout = async (req, res) => {
 
 export const myProfile = async (req, res) => {
   try {
-    const user = await User.findById(req.user._id);
+    const user = await User.findById(req.user._id).populate("blogs");
     res.status(200).json({
       success: true,
       user,
